@@ -26,7 +26,7 @@ int main()
   // std::shared_ptr<Cint> spCint(new Cint(8,9));
 
   std::shared_ptr<Cint> e = std::shared_ptr<Cint>(new Cint(8,9));
-  std::shared_ptr<Cint> f = std::shared_ptr<Cint>(new Cint(40,30));
+  auto f = std::shared_ptr<Cint>(new Cint(40,30));
 
   std::shared_ptr<Cint> spCinta;
   std::shared_ptr<Cint> spCint(new Cint);
@@ -40,11 +40,14 @@ int main()
   spVec.push_back(spCinta);
   spVec.push_back(e);
   spVec.push_back(f);
+  spVec.push_back(std::shared_ptr<Cint>(new Cint(60,70)));
 
+  f->x=50;  
 
-  std::cout << "Cint Vaule : " << cintb.x << " " << cintb.y << "\n";
+  std::cout << "Class Cint Vaule : " << cintb.x << " " << cintb.y << "\n";
   std::cout << "Vector Vaule : " << cintVec[0].x << " " << cintVec[0].y << "\n";
   std::cout << "Shared Pointer Vaule : " << spCinta->x << "\n";
   std::cout << "Vector Shared Pointer Value : " << spVec[3]->x << "\n";
+  std::cout << "Vector Shared Pointer Value : " << spVec[4]->x << "\n";
   return 0;
 }
